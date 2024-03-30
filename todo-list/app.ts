@@ -1,3 +1,6 @@
+#! /usr/bin/env node 
+
+
 import inquirer from "inquirer";
 
 let todos = [];
@@ -10,14 +13,14 @@ while (condition) {
     {
       name: "todo",
       type: "input",
-      message: "\n What do you want to add to your todo's",
+      message: "\n What do you want to add to your todo's : ",
     },
 
     {
       name: "addmore",
       type: "confirm",
       default: "false",
-      message: "\n Do you want to add more todo's",
+      message: "\n Do you want to add more todo's? ",
     },
   ]);
   todos.push(addtodo.todo)
