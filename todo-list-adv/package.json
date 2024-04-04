@@ -1,6 +1,6 @@
 {
-  "name": "mr7-todo-list",
-  "version": "1.0.4",
+  "name": "mr76-todo-list-adv",
+  "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "type": "module",
@@ -10,9 +10,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIC",
   "dependencies": {
-    "@types/node": "^20.12.2",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.12.4",
     "chalk": "^5.3.0",
     "inquirer": "^9.2.17"
   }

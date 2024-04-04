@@ -1,8 +1,10 @@
-#! /usr/bin/env node 
+#! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
 let todos = [];
 let condition = true;
+let i = 1;
+let j = 0;
 //////////////// ADDING TODO'S ////////////////
 while (condition) {
     let addtodo = await inquirer.prompt([
@@ -15,13 +17,15 @@ while (condition) {
             name: "addmore",
             type: "confirm",
             default: "false",
-            message: chalk.cyan("\n Do you want to add more todo's? "),
+            message: chalk.cyan("Do you want to add more todo's? "),
         },
     ]);
     todos.push(addtodo.todo);
     condition = addtodo.addmore;
-    console.log(chalk.blueBright.underline("\n Your ToDo List :"));
-    todos.forEach(todo => {
-        console.log(chalk.green(`\t \u2022 ${todo}`));
-    });
 }
+console.log(chalk.blueBright.underline("\n Your Todo List :"));
+todos.forEach((todo) => {
+    console.log(chalk.green(`\t ${i}. ${todos[j]}`));
+    i++;
+    j++;
+});
