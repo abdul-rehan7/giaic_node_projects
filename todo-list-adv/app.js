@@ -6,24 +6,46 @@ let condition = true;
 let i = 1;
 let j = 0;
 while (condition) {
-    let questionTodos = await inquirer.prompt([
+    //  ----------------------------------- Choices -----------------------------------
+    let Options = await inquirer.prompt([
         {
-            name: "q1",
-            type: "input",
-            message: "\n What do you want to add to your Todo List?",
-        },
-        {
-            name: "q2",
-            type: "confirm",
-            message: "Do you want to add more?",
+            name: "item",
+            type: "list",
+            message: "Choose an Operation",
+            choices: ["Add", "Remove", "Print"],
         },
     ]);
-    todolist.push(questionTodos.q1);
-    condition = questionTodos.q2;
+    //  --------------------------------------- ADD ---------------------------------------
+    if (Options.item === "Add") {
+        const newItem = await inquirer.prompt([
+            {
+                name: "toAdd",
+                type: "input",
+                message: "Enter What you want to add : ",
+            },
+        ]);
+        todolist.push(newItem.toAdd);
+    }
+    //  ------------------------------------- Remove -------------------------------------
+    else if (Options.item === "Remove") {
+        let toRemove = await inquirer.prompt([
+            {
+                name: "index",
+                type: "input",
+                message: "Enter the index of item to Remove : ",
+            },
+        ]);
+        const Remove = parseInt(toRemove.index);
+        todolist.splice(Remove - 1, 1);
+    }
+    //  ------------------------------- Final Result Printing ------------------------------
+    else if (Options.item === "Print") {
+        condition = false;
+    }
 }
-console.log(chalk.red.underline("\n This is your Todo List :"));
-todolist.forEach(element => {
-    console.log(chalk.green(`${i}. ${todolist[j]}`));
+console.log(chalk.underline.green("\n Your TodoList is :"));
+todolist.forEach((todo) => {
+    console.log(` ${i}. ${todolist[j]}`);
     i++;
     j++;
 });
