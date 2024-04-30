@@ -1,33 +1,50 @@
 import inquirer from "inquirer";
+// ------------------------TAKING STUDENT INFO--------------------------
 let info = await inquirer.prompt([
     {
         name: "studentName",
         type: "input",
-        message: "Enter the name of Student: "
+        message: "Enter the name of Student: ",
     },
     {
         name: "courses",
         type: "input",
-        message: "Enter Course Which you want to enroll: "
-    }
+        message: "Enter Course Which you want to enroll: ",
+    },
 ]);
+// ------------------------STUDENT DATA VARIABLE--------------------------
 let student = {
     name: [info.studentName],
     rollNumber: Math.floor(10000 + Math.random() * 10000),
     courses: [info.courses],
-    Balance: 1000,
-    status: "UNPAID"
+    Balance: 100000,
+    feeStatus: 0,
 };
+// ------------------------PRINTING DATA--------------------------
 console.log(`\t Name : ${student.name}`);
 console.log(`\t Roll Number : ${student.rollNumber}`);
 console.log(`\t Courses : ${student.courses}`);
 console.log(`\t Balance : ${student.Balance}`);
-console.log(`\t Status : ${student.status}`);
-if (status === "UNPAID") {
-    console.log("\t Your Fee is UNPAID!");
-    inquirer.prompt({
-        name: "paying",
-        type: "input",
-        message: , "Enter the Amount to Pay": 
-    });
+console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
+// ------------------------FEE PAYMENT--------------------------
+{
+    if (student.feeStatus != 100000) {
+        console.log("\t Your Fee is UNPAID!");
+        let pay = await inquirer.prompt({
+            name: "paying",
+            type: "number",
+            message: "Enter the Amount to Pay :",
+        });
+        console.log(`\t User Paid Rs ${pay.paying}`);
+        student.feeStatus += pay.paying;
+        student.Balance -= pay.paying;
+        console.log(`\t Your Current Balance is : ${student.Balance}`);
+    }
+}
+// --------------------------- WHEN FEE IS PAID --------------------------
+if ((student.feeStatus = 100000)) {
+    console.log("\t Your Fee is PAID and You can Join the Class :)");
+}
+else {
+    console.log('FEE IS NOT PAID!');
 }

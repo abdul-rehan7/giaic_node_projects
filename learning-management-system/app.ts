@@ -29,24 +29,32 @@ console.log(`\t Name : ${student.name}`);
 console.log(`\t Roll Number : ${student.rollNumber}`);
 console.log(`\t Courses : ${student.courses}`);
 console.log(`\t Balance : ${student.Balance}`);
-console.log(`\t Status : ${student.feeStatus}`);
+console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 
 // ------------------------FEE PAYMENT--------------------------
-if (student.feeStatus != 100000) {
-  console.log("\t Your Fee is UNPAID!");
+{
+  if (student.feeStatus != 100000) {
+    console.log("\t Your Fee is UNPAID!");
 
-  let pay = await inquirer.prompt({
-    name: "paying",
-    type: "number",
-    message: "Enter the Amount to Pay :",
-  });
+    let pay = await inquirer.prompt({
+      name: "paying",
+      type: "number",
+      message: "Enter the Amount to Pay :",
+    });
 
-  console.log(`User Paid Rs ${pay.paying}`);
-  student.feeStatus += pay.paying;
-  student.Balance -= pay.paying;
-console.log(`Your Current Balance is : ${student.Balance}`)
+    console.log(`\t User Paid Rs ${pay.paying}`);
+    student.feeStatus += pay.paying;
+    student.Balance -= pay.paying;
+    console.log(`\t Your Current Balance is : ${student.Balance}`);
+  }
 }
 
-else if (student.feeStatus = 100000){
-    console.log("\t Your Fee is PAID and You can Join the Couses")
+
+// --------------------------- WHEN FEE IS PAID --------------------------
+
+if ((student.feeStatus = 100000)) {
+  console.log("\t Your Fee is PAID and You can Join the Class :)");
+}
+else{
+console.log('FEE IS NOT PAID!')
 }
