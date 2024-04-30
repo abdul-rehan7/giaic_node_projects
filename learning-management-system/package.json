@@ -1,7 +1,7 @@
 {
-  "name": "mr76-lms",
-  "version": "1.0.0",
-  "description": "This is a Learning management System (LMS)",
+  "name": "mr76-sms",
+  "version": "1.0.2",
+  "description": "This is a Student management System (SMS)",
   "main": "app.js",
   "bin": "app.js",
   "type": "module",
@@ -9,12 +9,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIC",
   "dependencies": {
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.12.7",
     "chak": "^0.0.1-security",
     "chalk": "^5.3.0",
-    "inquirer": "^9.2.20"
+    "inquirer": "^9.2.20",
+    "mr76-sms": "^1.0.2"
   }
 }
