@@ -6,13 +6,13 @@ let info = await inquirer.prompt([
   {
     name: "studentName",
     type: "input",
-    message: "\n Enter the name of Student: ",
+    message:  chalk.blue("\n Enter the name of Student: "),
   },
 
   {
     name: "courses",
     type: "input",
-    message: "Enter Course Which you want to enroll: ",
+    message:  chalk.blue("Enter Course Which you want to enroll: "),
   },
 ]);
 
@@ -42,7 +42,7 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
     let pay = await inquirer.prompt({
       name: "paying",
       type: "number",
-      message: "\n Enter the Amount to Pay :",
+      message: chalk.blue("\n Enter the Amount to Pay :"),
     });
 
     console.log(`\t User Paid Rs ${pay.paying}`);
@@ -64,6 +64,9 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 if ((student.feeStatus >= student.courseFee)) {
   console.log(chalk.greenBright('\t\tYour Fee is PAID and You can Join the Classes :)'))
 }
+
+// --------------------------- IF STILL UNPAID --------------------------
+
 else{
 console.log(chalk.red('\t\tFEE IS NOT PAID!'))
 console.log(chalk.red("\tSorry! You Can't Join the Classes :("))
