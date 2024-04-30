@@ -1,4 +1,4 @@
-#! usr/nin/env node 
+#! usr/bin/env node 
 import inquirer from "inquirer";
 import chalk from "chalk";
 // ------------------------TAKING STUDENT INFO--------------------------
@@ -19,7 +19,7 @@ let student = {
     name: [info.studentName],
     rollNumber: Math.floor(10000 + Math.random() * 10000),
     courses: [info.courses],
-    Balance: 100000,
+    Balance: 500000,
     courseFee: 100000,
     feeStatus: 0,
 };
