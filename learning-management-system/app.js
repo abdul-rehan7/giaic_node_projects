@@ -1,3 +1,4 @@
+#! usr/nin/env node 
 import inquirer from "inquirer";
 import chalk from "chalk";
 // ------------------------TAKING STUDENT INFO--------------------------
@@ -5,12 +6,12 @@ let info = await inquirer.prompt([
     {
         name: "studentName",
         type: "input",
-        message: "\n Enter the name of Student: ",
+        message: chalk.underline.blue("\n Enter the name of Student:"),
     },
     {
         name: "courses",
         type: "input",
-        message: "Enter Course Which you want to enroll: ",
+        message: chalk.underline.blue("\n Enter Course Which you want to enroll:"),
     },
 ]);
 // ------------------------STUDENT DATA VARIABLE--------------------------
@@ -25,7 +26,7 @@ let student = {
 // ------------------------PRINTING DATA--------------------------
 console.log(`\t Name : ${student.name}`);
 console.log(`\t Roll Number : ${student.rollNumber}`);
-console.log(`\t Courses : ${student.courses}`);
+console.log(`\t Course : ${student.courses}`);
 console.log(`\t Course Fee : ${student.courseFee}`);
 console.log(`\t Balance : ${student.Balance}`);
 console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
@@ -36,19 +37,19 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
         let pay = await inquirer.prompt({
             name: "paying",
             type: "number",
-            message: chalk.blue("\n Enter the Amount to Pay :"),
+            message: chalk.underline.blue("\n Enter the Amount to Pay :"),
         });
-        console.log(`\t User Paid Rs ${pay.paying}`);
         student.feeStatus += pay.paying;
         student.Balance -= pay.paying;
-        console.log(`\t Your Current Balance is : ${student.Balance}`);
         console.log(`\t Fee Paid Rs ${student.feeStatus}`);
+        console.log(`\t Your Current Balance is : ${student.Balance}`);
     }
 }
 // --------------------------- WHEN FEE IS PAID --------------------------
 if ((student.feeStatus >= student.courseFee)) {
     console.log(chalk.greenBright('\t\tYour Fee is PAID and You can Join the Classes :)'));
 }
+// --------------------------- IF STILL UNPAID --------------------------
 else {
     console.log(chalk.red('\t\tFEE IS NOT PAID!'));
     console.log(chalk.red("\tSorry! You Can't Join the Classes :("));
