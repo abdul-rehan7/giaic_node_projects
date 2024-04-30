@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+import chalk from "chalk";
 
 // ------------------------TAKING STUDENT INFO--------------------------
 let info = await inquirer.prompt([
@@ -28,6 +29,7 @@ let student = {
 console.log(`\t Name : ${student.name}`);
 console.log(`\t Roll Number : ${student.rollNumber}`);
 console.log(`\t Courses : ${student.courses}`);
+console.log(`\t Course Fee : 100,000`);
 console.log(`\t Balance : ${student.Balance}`);
 console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 
@@ -56,5 +58,5 @@ if ((student.feeStatus = 100000)) {
   console.log("\t Your Fee is PAID and You can Join the Class :)");
 }
 else{
-console.log('FEE IS NOT PAID!')
+console.log(chalk.red('FEE IS NOT PAID!'))
 }
