@@ -5,7 +5,7 @@ let info = await inquirer.prompt([
     {
         name: "studentName",
         type: "input",
-        message: "Enter the name of Student: ",
+        message: "\n Enter the name of Student: ",
     },
     {
         name: "courses",
@@ -36,13 +36,13 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
         let pay = await inquirer.prompt({
             name: "paying",
             type: "number",
-            message: "Enter the Amount to Pay :",
+            message: "\n Enter the Amount to Pay :",
         });
         console.log(`\t User Paid Rs ${pay.paying}`);
         student.feeStatus += pay.paying;
         student.Balance -= pay.paying;
         console.log(`\t Your Current Balance is : ${student.Balance}`);
-        console.log(`\tFee Paid Rs ${student.feeStatus}`);
+        console.log(`\t Fee Paid Rs ${student.feeStatus}`);
     }
 }
 // --------------------------- WHEN FEE IS PAID --------------------------
@@ -51,4 +51,5 @@ if ((student.feeStatus >= student.courseFee)) {
 }
 else {
     console.log(chalk.red('\t\tFEE IS NOT PAID!'));
+    console.log(chalk.red("\tSorry! You Can't Join the course :("));
 }
