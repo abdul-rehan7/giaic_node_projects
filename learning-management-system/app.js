@@ -19,12 +19,14 @@ let student = {
     rollNumber: Math.floor(10000 + Math.random() * 10000),
     courses: [info.courses],
     Balance: 100000,
+    courseFee: 100000,
     feeStatus: 0,
 };
 // ------------------------PRINTING DATA--------------------------
 console.log(`\t Name : ${student.name}`);
 console.log(`\t Roll Number : ${student.rollNumber}`);
 console.log(`\t Courses : ${student.courses}`);
+console.log(`\t Course Fee : ${student.courseFee}`);
 console.log(`\t Balance : ${student.Balance}`);
 console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 // ------------------------FEE PAYMENT--------------------------
@@ -40,12 +42,13 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
         student.feeStatus += pay.paying;
         student.Balance -= pay.paying;
         console.log(`\t Your Current Balance is : ${student.Balance}`);
+        console.log(`\tFee Paid Rs ${student.feeStatus}`);
     }
 }
 // --------------------------- WHEN FEE IS PAID --------------------------
-if ((student.feeStatus = 100000)) {
+if ((student.feeStatus >= student.courseFee)) {
     console.log("\t Your Fee is PAID and You can Join the Class :)");
 }
 else {
-    console.log(chalk.red('FEE IS NOT PAID!'));
+    console.log(chalk.red('\t\tFEE IS NOT PAID!'));
 }
