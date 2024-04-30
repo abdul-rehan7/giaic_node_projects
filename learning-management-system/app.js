@@ -47,7 +47,7 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 }
 // --------------------------- WHEN FEE IS PAID --------------------------
 if ((student.feeStatus >= student.courseFee)) {
-    console.log("\t Your Fee is PAID and You can Join the Class :)");
+    console.log(chalk.greenBright('\t\tYour Fee is PAID and You can Join the Class :)'));
 }
 else {
     console.log(chalk.red('\t\tFEE IS NOT PAID!'));

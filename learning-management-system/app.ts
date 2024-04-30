@@ -37,7 +37,7 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 // ------------------------FEE PAYMENT--------------------------
 {
   if (student.feeStatus != 100000) {
-    console.log("\t Your Fee is UNPAID!");
+    console.log(chalk.red("\t\t\t Your Fee is UNPAID!"));
 
     let pay = await inquirer.prompt({
       name: "paying",
@@ -62,9 +62,9 @@ console.log(`\t Fee Paid : Rs ${student.feeStatus}`);
 // --------------------------- WHEN FEE IS PAID --------------------------
 
 if ((student.feeStatus >= student.courseFee)) {
-  console.log(chalk.greenBright('\t\tYour Fee is PAID and You can Join the Class :)'))
+  console.log(chalk.greenBright('\t\tYour Fee is PAID and You can Join the Classes :)'))
 }
 else{
 console.log(chalk.red('\t\tFEE IS NOT PAID!'))
-console.log(chalk.red("\tSorry! You Can't Join the course :("))
+console.log(chalk.red("\tSorry! You Can't Join the Classes :("))
 }
