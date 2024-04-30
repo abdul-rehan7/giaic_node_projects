@@ -24,7 +24,7 @@ import chalk from "chalk";
     name: [info.studentName],
     rollNumber: Math.floor(10000 + Math.random() * 10000),
     courses: [info.courses],
-    Balance: 100000,
+    Balance: 500000,
     courseFee : 100000,
     feeStatus: 0,
   };
