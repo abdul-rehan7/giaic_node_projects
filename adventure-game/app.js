@@ -39,6 +39,10 @@ while (player.health > 0) {
         player.health = Math.max(0, player.health);
         console.log(`\n Your Health: ${chalk.greenBright(player.health)} \n Enemy Health: ${chalk.greenBright(enemy.health)}`);
     }
+    if (player.health <= 0) {
+        console.log(" Your Health is 0 and You Loose the Game!");
+        process.exit();
+    }
     let secQ = await inquirer.prompt({
         name: "Q2",
         type: "list",
@@ -59,7 +63,7 @@ while (player.health > 0) {
             enemy.health = Math.max(0, enemy.health);
             console.log(` Your Health: ${chalk.greenBright(player.health)} \n Enemy Health: ${chalk.greenBright(enemy.health)}`);
             while (enemy.health <= 0) {
-                console.log(chalk.rgb(198, 91, 207)("Your Enemy Die and You won the Game :) "));
+                console.log(chalk.rgb(198, 91, 207)(" Your Enemy Die and You won the Game :) "));
                 process.exit();
             }
         }
@@ -67,10 +71,6 @@ while (player.health > 0) {
             console.log("Wrong Command!");
         }
     }
-}
-while (player.health <= 0) {
-    console.log("Your Health is 0 and You Loose the Game!");
-    process.exit();
 }
 // ===================================== GAME OVER ====================================
 console.log(chalk.red("\n \t GAME OVER !!!"));

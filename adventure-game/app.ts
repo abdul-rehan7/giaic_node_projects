@@ -55,6 +55,14 @@ while (player.health > 0) {
     );
   }
 
+
+  if (player.health <= 0) {
+    console.log(chalk.rgb(94, 41, 45)(" Your Health is 0 and You Loose the Game!"));
+    process.exit();
+  }
+
+
+
   let secQ = await inquirer.prompt({
     name: "Q2",
     type: "list",
@@ -92,9 +100,6 @@ while (player.health > 0) {
   }
 }
 
-while (player.health <= 0) {
-    console.log(" Your Health is 0 and You Loose the Game!");
-    process.exit();
-  }
+
 // ===================================== GAME OVER ====================================
 console.log(chalk.red("\n \t GAME OVER !!!"));
