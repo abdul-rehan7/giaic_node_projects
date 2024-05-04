@@ -40,7 +40,7 @@ while (player.health > 0) {
         console.log(`\n Your Health: ${chalk.greenBright(player.health)} \n Enemy Health: ${chalk.greenBright(enemy.health)}`);
     }
     if (player.health <= 0) {
-        console.log(" Your Health is 0 and You Loose the Game!");
+        console.log(chalk.rgb(94, 41, 45)(" Your Health is 0 and You Loose the Game!"));
         process.exit();
     }
     let secQ = await inquirer.prompt({
