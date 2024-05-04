@@ -3,6 +3,9 @@ import chalk from "chalk";
 let player = {
     health: 100,
 };
+let enemy = {
+    health: 100,
+};
 function recover() {
     return (player.health = 100);
 }
@@ -12,7 +15,7 @@ while (player.health > 0) {
         name: "Q1",
         message: "Which opponent Do You want to Fight?",
         type: "list",
-        choices: ["Skeleton", "Alien", "Robot", "Recover"],
+        choices: ["Skeleton", "Alien", "Robot"],
     });
     //  ======================================= OPPONENTS =======================================
     if (ask.Q1 == "Skeleton") {
@@ -36,14 +39,24 @@ while (player.health > 0) {
         player.health = Math.max(0, player.health);
         console.log(`\nYour player health is ${chalk.greenBright(player.health)}`);
     }
+    let secQ = await inquirer.prompt({
+        name: "Q2",
+        type: "list",
+        message: "What do you want to do?",
+        choices: ["Attack", "Recover"],
+    });
     // ===================================== RECOVER ====================================
-    else if ((ask.Q1 = "Recover")) {
-        recover();
-        console.log("\nYou Choosed to Recover! ");
-        console.log(`Your Health is Now ${chalk.greenBright(player.health)}`);
-    }
-    else {
-        console.log("No Opponent Selected");
+    {
+        if (secQ.Q2 = "Recover") {
+            recover();
+            console.log("\nYou Choosed to Recover! ");
+            console.log(`Your Health is Now ${chalk.greenBright(player.health)}`);
+        }
+        else if (secQ.Q2 = "Attack") {
+            console.log("\nYou Choosed to Attack! ");
+            enemy.health -= 50;
+            console.log(`Your Enemy's Health is Now ${chalk.greenBright(enemy.health)}`);
+        }
     }
 }
 // ===================================== GAME OVER ====================================
