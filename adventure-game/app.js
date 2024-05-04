@@ -4,7 +4,7 @@ let player = {
     health: 100,
 };
 function recover() {
-    return player.health = 100;
+    return (player.health = 100);
 }
 // =================================== WHILE CONDITION ====================================
 while (player.health > 0) {
@@ -12,7 +12,7 @@ while (player.health > 0) {
         name: "Q1",
         message: "Which opponent Do You want to Fight?",
         type: "list",
-        choices: ["Skeleton", "Alien", "Robot", "Recover"]
+        choices: ["Skeleton", "Alien", "Robot", "Recover"],
     });
     //  ======================================= OPPONENTS =======================================
     if (ask.Q1 == "Skeleton") {
@@ -36,7 +36,8 @@ while (player.health > 0) {
         player.health = Math.max(0, player.health);
         console.log(`\nYour player health is ${chalk.greenBright(player.health)}`);
     }
-    else if (ask.Q1 = "Recover") {
+    // ===================================== RECOVER ====================================
+    else if ((ask.Q1 = "Recover")) {
         recover();
         console.log("\nYou Choosed to Recover! ");
         console.log(`Your Health is Now ${chalk.greenBright(player.health)}`);
@@ -45,4 +46,5 @@ while (player.health > 0) {
         console.log("No Opponent Selected");
     }
 }
+// ===================================== GAME OVER ====================================
 console.log(chalk.red("\n \t GAME OVER !!!"));
