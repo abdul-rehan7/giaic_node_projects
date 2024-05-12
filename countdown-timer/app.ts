@@ -7,5 +7,9 @@ const ans = await inquirer.prompt({
   message: "Enter Your Starting time (in seconds)",
 });
 
-let value = ans.startingTime;
-console.log(value)
+function startTime(val:number){
+    setInterval((()=>{}),1000)
+}
+
+const inTime = new Date().setSeconds(new Date().getSeconds() + 1)
+console.log(inTime)
